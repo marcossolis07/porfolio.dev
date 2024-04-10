@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import SectionContainer from '../components/SectionContainer.astro'
+import Experience from '../components/Experience.astro';
+import Work from '../icons/Work.astro';
+import Code from '../icons/Code.astro';
+import Skills from '../components/Skills.astro';
+import ProfileCheck from '../icons/ProfileCheck.astro';
+import AboutMe from '../components/AboutMe.astro'
+import Hero from '../components/Hero.astro';
+---
+
+<Layout 
+	title="Portfolio de Marcos Solis - Desarrollador y Programador Web"
+	description="Contratame para crear tu aplicacion web o movil. Desarrollador Web, especializado en desarrollo Full Stack"
+>
+	<main class="px-4">
+		<SectionContainer class="py-16 md:py-36">
+			<Hero>
+			</slot>
+			</Hero>
+		</SectionContainer>
+		<div class="space-y-24">
+		<SectionContainer id="experiencia">
+			<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-blue-400 dark:text-white">
+				<Work class="size-8"/>
+				Experiencia Laboral
+			</h2>
+
+			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="habilidades">
+			<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-blue-400 dark:text-white">
+				<Code class="size-8"/>
+				Habilidades
+			</h2>
+
+			<Skills />
+		</SectionContainer>
+
+		<SectionContainer id="sobre-mi">
+			<h2
+			  class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-blue-400 dark:text-white"
+			>
+			  <ProfileCheck class="size-8" />
+			  Sobre mí
+			</h2>
+			<AboutMe />
+		  </SectionContainer>
+		</div>
+	</main>
+</Layout>
