@@ -6,47 +6,51 @@ import LinkedInIcon from '../icons/LinkedIn.astro'
 import GitHubIcon from '../icons/GitHub.astro'
 import MailIcon from '../icons/Mail.astro'
 ---
-
+<article class="flex flex-col items-center justify-center gap-8 text-gray-400 dark:text-gray-300 md:flex-row">
 <div class="max-w-xl">
-    <!-- <div class="flex gap-8 mb-4">
-        <img
-          class="rounded-full shadow-lg size-24"
-          src="/img/marcos-img.png"
-          alt={personalImageAlt}
-        />
-        <a
-          href="https://www.linkedin.com/in/marcos-solis-512862283/"
-          target="_blank"
-          rel="noopener"
-          class="flex items-center transition md:justify-center md:hover:scale-105"
-        >
-          <Badge>Disponible para trabajar</Badge>
-        </a>
-    </div> -->
-    <h1
-    class="text-4xl font-bold tracking-tight text-blue-400 sm:text-5xl dark:text-white"
+  <h1
+  class="text-4xl font-bold tracking-tight text-blue-400 sm:text-5xl dark:text-white"
   >
   Hola, soy Marcos Solis
-  </h1>
-  <p
-    class="mt-6 text-xl text-blue-400 dark:[&>strong]:text-yellow-500 [&>strong]:text-yellow-200 [&>strong]:font-semibold dark:text-gray-300"
+</h1>
+<p
+class="mt-6 text-xl text-blue-400 dark:[&>strong]:text-yellow-500 [&>strong]:text-yellow-200 [&>strong]:font-semibold dark:text-gray-300"
   >
-   <strong
-      >Desarrollador y Programador Web Full Stack.</strong
-    > De Santa Fe, Argentina. Especializado en el desarrollo de aplicaciones web y mobile.
-  </p>
-  <nav class="flex flex-wrap gap-4 mt-8">
-      <Social href="https://www.linkedin.com/in/marcos-solis-512862283/">
-        <LinkedInIcon class="size-4 md:size-6" />
-        LinkedIn
-    </Social>
-    <Social href="https://github.com/marcossolis07">
-        <GitHubIcon class="size-4 md:size-6"/>
-        GitHub
-    </Social>
-    <Social href="mailto:marcossolis023@gmail.com">
-      <MailIcon class="size-4 md:size-6" />
-      Contáctame
-    </Social>
-  </nav>
+  <strong
+  >Desarrollador y Programador Web Full Stack.</strong
+  > De Santa Fe, Argentina. Especializado en el desarrollo de aplicaciones web y mobile.
+</p>
+<nav class="flex flex-wrap gap-4 mt-8">
+  <Social href="https://www.linkedin.com/in/marcos-solis-512862283/">
+    <LinkedInIcon class="size-4 md:size-6" />
+    LinkedIn
+  </Social>
+  <Social href="https://github.com/marcossolis07">
+    <GitHubIcon class="size-4 md:size-6"/>
+    GitHub
+  </Social>
+  <Social href="mailto:marcossolis023@gmail.com">
+    <MailIcon class="size-4 md:size-6" />
+    Contáctame
+  </Social>
+</nav>
 </div>
+
+<img width="200" height="200" src="/img/marcos-foto-1.jpg" alt={personalImageAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
+</article>
+
+<!-- <div class="flex gap-8 mb-4">
+    <img
+      class="rounded-full shadow-lg size-24"
+      src="/img/marcos-img.png"
+      alt={personalImageAlt}
+    />
+    <a
+      href="https://www.linkedin.com/in/marcos-solis-512862283/"
+      target="_blank"
+      rel="noopener"
+      class="flex items-center transition md:justify-center md:hover:scale-105"
+    >
+      <Badge>Disponible para trabajar</Badge>
+    </a>
+</div> -->

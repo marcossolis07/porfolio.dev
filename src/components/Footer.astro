@@ -1,5 +1,8 @@
 ---
 const currentYear = new Date().getFullYear()
+import Whatsapp from '../icons/Whatsapp.astro';
+import LinkedInIcon from '../icons/LinkedIn.astro'
+import GitHubIcon from '../icons/GitHub.astro'
 ---
 
 <footer
@@ -16,11 +19,15 @@ const currentYear = new Date().getFullYear()
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium text-white/90 sm:mt-0"
     >
-      <li>
-        <a id="contacto" href="mailto:marcossolis023@gmail.com" class="hover:underline"
-          >Contacto</a
-        >
-      </li>
+        <a target="_blank" aria-label="Link para entrar a contacto via whatsapp" href="https://api.whatsapp.com/send?phone=5493425928293" class="me-4 md:me-6">
+          <Whatsapp class="size-4 md:size-6"/>
+        </a>
+        <a target="_blank" aria-label="Link para entrar al perfil de LinkedIn" href="https://www.linkedin.com/in/marcos-solis-512862283/" class="me-4 md:me-6">
+          <LinkedInIcon class="size-4 md:size-6"/>
+        </a>
+        <a target="_blank" aria-label="Link para entrar al perfil de GitHub" href="https://github.com/marcossolis07" class="me-2 md:me-4">
+          <GitHubIcon class="size-4 md:size-6"/>
+        </a>
     </ul>
   </div>
 </footer>
