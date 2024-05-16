@@ -1,10 +1,12 @@
 ---
 const personalImageAlt = "Marcos Solis"
+import { personalData } from "../../utils/data/personal-data"
 import Badge from "./Badge.astro"
 import Social from "./Social.astro"
 import LinkedInIcon from '../icons/LinkedIn.astro'
 import GitHubIcon from '../icons/GitHub.astro'
 import MailIcon from '../icons/Mail.astro'
+import DownloadIcon from '../icons/Download.astro'
 ---
 <article class="flex flex-col items-center justify-center gap-8 text-gray-400 dark:text-gray-300 md:flex-row">
 <div class="max-w-xl">
@@ -32,6 +34,10 @@ class="mt-6 text-xl text-blue-400 dark:[&>strong]:text-yellow-500 [&>strong]:tex
   <Social href="mailto:marcossolis023@gmail.com">
     <MailIcon class="size-4 md:size-6" />
     Contáctame
+  </Social>
+  <Social href={personalData.resume}>
+    <DownloadIcon class="size-4 md:size-6" />
+    Descargar mi CV
   </Social>
 </nav>
 </div>
