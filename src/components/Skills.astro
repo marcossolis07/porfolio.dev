@@ -1,23 +1,22 @@
 ---
-import Section from "./Section.astro"
-import Social from '../components/Social.astro';
-import HTML from "../icons/Html.astro"
-import CSS from "../icons/Css.astro"
-import JavaScript from "../icons/JavaScript.astro"
-import TypeScript from "../icons/TypeScript.astro"
-import React from "../icons/React.astro"
-import Node from "../icons/Node.astro"
-import MySQL from "../icons/MySql.astro"
-import Git from "../icons/Git.astro"
-import GitHub from "../icons/GitHub.astro"
-import Next from "../icons/Next.astro"
-import Tailwind from "../icons/Tailwind.astro"
-import Redux from "../icons/Redux.astro"
-import MongoDB from "../icons/MongoDB.astro"
-import Figma from "../icons/Figma.astro"
-import PHP from "../icons/PHP.astro"
+import Section from "./Section.astro";
+import Social from "../components/Social.astro";
+import HTML from "../icons/Html.astro";
+import CSS from "../icons/Css.astro";
+import JavaScript from "../icons/JavaScript.astro";
+import TypeScript from "../icons/TypeScript.astro";
+import React from "../icons/React.astro";
+import Node from "../icons/Node.astro";
+import MySQL from "../icons/MySql.astro";
+import Git from "../icons/Git.astro";
+import GitHub from "../icons/GitHub.astro";
+import Next from "../icons/Next.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import Redux from "../icons/Redux.astro";
+import MongoDB from "../icons/MongoDB.astro";
+import Figma from "../icons/Figma.astro";
+import PHP from "../icons/PHP.astro";
 import Docker from "../icons/Docker.astro";
-
 
 const SKILLS_ICONS: Record<string, any> = {
   HTML,
@@ -35,131 +34,120 @@ const SKILLS_ICONS: Record<string, any> = {
   MongoDB,
   Figma,
   PHP,
-  Docker
-}
+  Docker,
+};
 const skills = [
-    {
-      "name": "HTML",
-      "keywords": [
-        "Desarrollo Web", "Frontend"
-      ]
-    },
-    {
-      "name": "CSS",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "Diseño Responsive"
-      ]
-    },
-    {
-      "name": "JavaScript",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "Backend", "Fullstack"
-      ]
-    },
-    {
-      "name": "Tailwind",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "CSS Framework", "Diseño Responsive"
-      ]
-    },
-    {
-      "name": "TypeScript",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "Backend", "JavaScript Superset"
-      ]
-    },
-    {
-      "name": "Node",
-      "keywords": [
-        "Desarrollo Web", "Backend", "JavaScript", "Servidor"
-      ]
-    },
-    {
-      "name": "MySQL",
-      "keywords": [
-        "Bases de Datos", "SQL", "Almacenamiento de Datos", "Backend"
-      ]
-    },
-    {
-      "name": "Git",
-      "keywords": [
-        "Control de Versiones", "Colaboración", "Código Fuente"
-      ]
-    },
-    {
-      "name": "GitHub",
-      "keywords": [
-        "Control de Versiones", "Colaboración", "Código Fuente", "Git"
-      ]
-    },
-    {
-      "name": "Next.js",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "React Framework", "SSR", "Static Generation"
-      ]
-    },
-    {
-      "name": "React",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "JavaScript Library", "UI"
-      ]
-    },
-    {
-      "name": "Redux",
-      "keywords": ["Desarrollo Web", "Frontend"]
-    },
-    {
-      "name": "MongoDB",
-      "keywords": ["Bases de Datos", "Almacenamiento de Datos", "Backend"]
-    },
-    {
-      "name": "Figma",
-      "keywords": []
-    },
-    {
-      "name": "PHP",
-      "keywords": ["Desarrollo Web", "Backend", "Servidor"]
-    },
-    {
-      "name": "Docker",
-      "keywords": []
-    }
-  ]
+  {
+    name: "HTML",
+    keywords: ["Desarrollo Web", "Frontend"],
+  },
+  {
+    name: "CSS",
+    keywords: ["Desarrollo Web", "Frontend", "Diseño Responsive"],
+  },
+  {
+    name: "JavaScript",
+    keywords: ["Desarrollo Web", "Frontend", "Backend", "Fullstack"],
+  },
+  {
+    name: "Tailwind",
+    keywords: [
+      "Desarrollo Web",
+      "Frontend",
+      "CSS Framework",
+      "Diseño Responsive",
+    ],
+  },
+  {
+    name: "TypeScript",
+    keywords: ["Desarrollo Web", "Frontend", "Backend", "JavaScript Superset"],
+  },
+  {
+    name: "Node",
+    keywords: ["Desarrollo Web", "Backend", "JavaScript", "Servidor"],
+  },
+  {
+    name: "MySQL",
+    keywords: ["Bases de Datos", "SQL", "Almacenamiento de Datos", "Backend"],
+  },
+  {
+    name: "Git",
+    keywords: ["Control de Versiones", "Colaboración", "Código Fuente"],
+  },
+  {
+    name: "GitHub",
+    keywords: ["Control de Versiones", "Colaboración", "Código Fuente", "Git"],
+  },
+  {
+    name: "Next.js",
+    keywords: [
+      "Desarrollo Web",
+      "Frontend",
+      "React Framework",
+      "SSR",
+      "Static Generation",
+    ],
+  },
+  {
+    name: "React",
+    keywords: ["Desarrollo Web", "Frontend", "JavaScript Library", "UI"],
+  },
+  {
+    name: "Redux",
+    keywords: ["Desarrollo Web", "Frontend"],
+  },
+  {
+    name: "MongoDB",
+    keywords: ["Bases de Datos", "Almacenamiento de Datos", "Backend"],
+  },
+  {
+    name: "Figma",
+    keywords: [],
+  },
+  {
+    name: "PHP",
+    keywords: ["Desarrollo Web", "Backend", "Servidor"],
+  },
+  {
+    name: "Docker",
+    keywords: [],
+  },
+];
 ---
 
 <Section>
-    <ul>
-      {
-        skills.map(({ name }) => {
-          const iconName = name === "Next.js" ? "Next" : name
-          const Icon = SKILLS_ICONS[iconName]
-  
-          return (
-            <Social>
-              {Icon && <Icon />} <span>{name}</span>
-            </Social>
-          )
-        })
-      }
-    </ul>
-  </Section>
-  
-  <style>
-    ul {
-      display: inline-flex;
-      gap: 8px;
-      flex-wrap: wrap;
+  <ul>
+    {
+      skills.map(({ name }) => {
+        const iconName = name === "Next.js" ? "Next" : name;
+        const Icon = SKILLS_ICONS[iconName];
+
+        return (
+          <Social>
+            {Icon && <Icon />} <span>{name}</span>
+          </Social>
+        );
+      })
     }
-  
-    li {
-      align-items: center;
-      background: #eee;
-      border-radius: 6px;
-      color: black;
-      display: flex;
-      font-size: 0.8rem;
-      font-weight: 500;
-      gap: 4px;
-      padding: 0.2rem 0.6rem;
-    }
-  </style>
+  </ul>
+</Section>
+
+<style>
+  ul {
+    display: inline-flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  li {
+    align-items: center;
+    background: #eee;
+    border-radius: 6px;
+    color: black;
+    display: flex;
+    font-size: 0.8rem;
+    font-weight: 500;
+    gap: 4px;
+    padding: 0.2rem 0.6rem;
+  }
+</style>

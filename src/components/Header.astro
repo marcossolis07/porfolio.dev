@@ -1,33 +1,33 @@
 ---
-import ThemeToggle from '../components/ThemeToggle.astro'
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 const navItems = [
-    {
-      title: "Experiencia",
-      label: "experiencia",
-      url: "/#experiencia",
-    },
-    {
-      title: "Proyectos",
-      label: "proyectos",
-      url: "/#proyectos",
-    },
-    {
-      title: "Habilidades",
-      label: "habilidades",
-      url: "/#habilidades",
-    },
-    {
-      title: "Sobre mí",
-      label: "sobre-mi",
-      url: "/#sobre-mi",
-    },
-    {
-      title: "Contacto",
-      label: "contacto",
-      url: "mailto:marcossolis023@gmail.com",
-    },
-]
+  {
+    title: "Experiencia",
+    label: "experiencia",
+    url: "/#experiencia",
+  },
+  {
+    title: "Proyectos",
+    label: "proyectos",
+    url: "/#proyectos",
+  },
+  {
+    title: "Habilidades",
+    label: "habilidades",
+    url: "/#habilidades",
+  },
+  {
+    title: "Sobre mí",
+    label: "sobre-mi",
+    url: "/#sobre-mi",
+  },
+  {
+    title: "Contacto",
+    label: "contacto",
+    url: "mailto:marcossolis023@gmail.com",
+  },
+];
 ---
 
 <header
@@ -51,7 +51,22 @@ const navItems = [
   </nav>
 </header>
 
-<script>
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+    }
+  }
+</style>
+
+<!-- Este script utiliza el IntersectionObserver para observar cuándo las secciones de la página son visibles en el viewport y resalta el enlace de navegación correspondiente a la sección visible.  -->
+<!-- <script>
   document.addEventListener("astro:page-load", () => {
     const sections = document.querySelectorAll("section")
     const navItems = document.querySelectorAll("header nav a")
@@ -91,18 +106,5 @@ const navItems = [
       }
     }
   })
-</script>
+</script> -->
 
-<style>
-  nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
-
-  @keyframes nav-shadown {
-    to {
-      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
-    }
-  }
-</style>

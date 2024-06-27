@@ -1,31 +1,32 @@
-
 ---
 import ExperienceItems from "./ExperienceItems.astro";
 
 const experiences = [
-    {
-        date: 'Ene 2024 - Mar 2024',
-        title: 'Consultor de Soporte e Implementación',
-        company: 'Brio Team',
-        description: 'Tareas: Especialista en implementación y desarrollo de software, digitalizar formularios, uso de excel, etc.'
-    },
-    {
-        date: 'Nov 2021 - Abr 2023',
-        title: 'Empleado de Atención al Cliente - Tiempo Completo',
-        company: 'YPF A.M GAS SA',
-        description: 'Tareas: Cargado de combustible, manejo de caja y dinero, limpieza,etc.'
-    }
-]
+  {
+    date: "Ene 2024 - Mar 2024",
+    title: "Consultor de Soporte e Implementación",
+    company: "Brio Team",
+    description:
+      "Tareas: Especialista en implementación y desarrollo de software, digitalizar formularios, uso de excel, etc.",
+  },
+  {
+    date: "Nov 2021 - Abr 2023",
+    title: "Empleado de Atención al Cliente - Tiempo Completo",
+    company: "YPF A.M GAS SA",
+    description:
+      "Tareas: Cargado de combustible, manejo de caja y dinero, limpieza,etc.",
+  },
+];
 ---
 
 <ol class="relative mt-16">
-    {
-        experiences?.map(experience => (
-        <li class="">
-            <ExperienceItems {...experience} />
-        </li>
-        ))
-    }                  
+  {
+    experiences?.map((experience) => (
+      <li class="">
+        <ExperienceItems {...experience} />
+      </li>
+    ))
+  }
 </ol>
 
 <!--

@@ -1,8 +1,8 @@
 ---
-const currentYear = new Date().getFullYear()
-import Whatsapp from '../icons/Whatsapp.astro';
-import LinkedInIcon from '../icons/LinkedIn.astro'
-import GitHubIcon from '../icons/GitHub.astro'
+const currentYear = new Date().getFullYear();
+import Whatsapp from "../icons/Whatsapp.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import GitHubIcon from "../icons/GitHub.astro";
 ---
 
 <footer
@@ -13,21 +13,37 @@ import GitHubIcon from '../icons/GitHub.astro'
   >
     <span class="text-sm sm:text-center text-zinc-200/90"
       >© {currentYear}
-      <a href="https://github.com/marcossolis07" class="hover:underline">marcossolis</a>. Casi
-      todos los derechos reservados
+      <a href="https://github.com/marcossolis07" class="hover:underline"
+        >marcossolis</a
+      >. Casi todos los derechos reservados
     </span>
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium text-white/90 sm:mt-0"
     >
-        <a target="_blank" aria-label="Link para entrar a contacto via whatsapp" href="https://api.whatsapp.com/send?phone=5493425928293" class="me-4 md:me-6">
-          <Whatsapp class="size-4 md:size-6"/>
-        </a>
-        <a target="_blank" aria-label="Link para entrar al perfil de LinkedIn" href="https://www.linkedin.com/in/marcos-solis-512862283/" class="me-4 md:me-6">
-          <LinkedInIcon class="size-4 md:size-6"/>
-        </a>
-        <a target="_blank" aria-label="Link para entrar al perfil de GitHub" href="https://github.com/marcossolis07" class="me-2 md:me-4">
-          <GitHubIcon class="size-4 md:size-6"/>
-        </a>
+      <a
+        target="_blank"
+        aria-label="Link para entrar a contacto via whatsapp"
+        href="https://api.whatsapp.com/send?phone=5493425928293"
+        class="me-4 md:me-6"
+      >
+        <Whatsapp class="size-4 md:size-6" />
+      </a>
+      <a
+        target="_blank"
+        aria-label="Link para entrar al perfil de LinkedIn"
+        href="https://www.linkedin.com/in/marcos-solis-512862283/"
+        class="me-4 md:me-6"
+      >
+        <LinkedInIcon class="size-4 md:size-6" />
+      </a>
+      <a
+        target="_blank"
+        aria-label="Link para entrar al perfil de GitHub"
+        href="https://github.com/marcossolis07"
+        class="me-2 md:me-4"
+      >
+        <GitHubIcon class="size-4 md:size-6" />
+      </a>
     </ul>
   </div>
 </footer>
