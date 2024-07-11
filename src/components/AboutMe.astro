@@ -25,10 +25,8 @@ const personalImageAlt = "Marcos Solis";
         en el backend como en el frontend.</strong
       >
       <br />
-      También trabaje durante un año y medio como playero en una estacion de servicio,
-      lo cual me ayudó enormemente a aprender cómo trabajar en equipo y para una
-      empresa. Hoy en día, puedo afirmar que soy una persona con sólidas habilidades
-      blandas y un amplio conocimiento técnico en desarrollo web.
+      Hoy en día, puedo afirmar que soy una persona con sólidas habilidades blandas
+      y un amplio conocimiento técnico en desarrollo web.
     </p>
 
     <p>
@@ -50,3 +48,34 @@ const personalImageAlt = "Marcos Solis";
     style=""
   />
 </article>
+
+<style>
+  .animation {
+    @media (min-width: 468px) {
+      width: 90px;
+      height: 90px;
+      top: 14%;
+    }
+
+    @media (min-width: 994px) {
+      width: 120px;
+      height: 120px;
+    }
+
+    top: 13%;
+    left: 5%;
+    animation: cubo 7s linear infinite;
+    @keyframes cubo {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+</style>
+
+<!-- También trabaje durante un año y medio como playero en una estación de servicio,
+      lo cual me ayudó enormemente a aprender cómo trabajar en equipo y para una
+      empresa. -->
