@@ -44,37 +44,40 @@ const personalImageAlt = "Marcos Solis";
     height="200"
     src="/svg/programming.svg"
     alt={personalImageAlt}
-    class="object-cover w-64 h-full p-1 md:order-2 lg:p-2 md:w-[25vw]"
+    class="p-1 md:order-2 lg:p-2 animation"
     style=""
   />
 </article>
 
 <style>
   .animation {
-    @media (min-width: 468px) {
-      width: 90px;
-      height: 90px;
-      top: 14%;
-    }
+    position: relative; /* Asegúrate de que la posición relativa esté aplicada */
+    animation: flotar 4s ease-in-out infinite; /* Ajusta la duración y la función de tiempo según sea necesario */
+  }
 
-    @media (min-width: 994px) {
-      width: 120px;
-      height: 120px;
-    }
-
-    top: 13%;
-    left: 5%;
-    animation: cubo 7s linear infinite;
-    @keyframes cubo {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+  @media (min-width: 468px) {
+    .animation {
+      width: 150px;
+      height: 150px;
     }
   }
-</style>
+
+  @media (min-width: 994px) {
+    .animation {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  @keyframes flotar {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px); /* Ajusta la distancia del movimiento vertical para el efecto de flotación */
+    }
+  }
+</style> 
 
 <!-- También trabaje durante un año y medio como playero en una estación de servicio,
       lo cual me ayudó enormemente a aprender cómo trabajar en equipo y para una
