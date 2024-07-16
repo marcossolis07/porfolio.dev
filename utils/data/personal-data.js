@@ -1,5 +1,5 @@
 export const personalData = {
-    resume: "https://drive.google.com/file/d/1BL5qgSuWpsiCBGt78XjVrjHeWeqVMz62/view?usp=drive_link"
+    resume: "https://drive.google.com/file/d/1GNfRNra5VFK__5KabVwQxf427B6je5rg/view?usp=drive_link"
 }
 
 //CV VIEJO
