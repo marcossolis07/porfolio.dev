@@ -11,6 +11,8 @@ import ProfileCheck from '../icons/ProfileCheck.astro';
 import AboutMe from '../components/AboutMe.astro'
 import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
+
+const showExperience = false; // Cambiar a true para mostrar la sección Experiencia Laboral
 ---
 
 <Layout 
@@ -24,17 +26,19 @@ import Projects from '../components/Projects.astro';
 			</Hero>
 		</SectionContainer>
 		<div class="space-y-24">
+		{showExperience && (
 		<SectionContainer id="experiencia">
-			<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-blue-400 dark:text-white">
+			<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-blue-600 dark:text-white">
 				<Briefcase class="size-8"/>
 				Experiencia Laboral
 			</h2>
 
 			<Experience />
 		</SectionContainer>
+		)}
 
 		<SectionContainer id="proyectos">
-			<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-blue-400 dark:text-white">
+			<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-blue-600 dark:text-white">
 				<Code class="size-8"/>
 				Proyectos
 			</h2>
@@ -43,7 +47,7 @@ import Projects from '../components/Projects.astro';
 		</SectionContainer>
 
 		<SectionContainer id="habilidades">
-			<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-blue-400 dark:text-white">
+			<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-blue-600 dark:text-white">
 				<Settings class="size-8"/>
 				Habilidades
 			</h2>
@@ -53,7 +57,7 @@ import Projects from '../components/Projects.astro';
 
 		<SectionContainer id="sobre-mi">
 			<h2
-			  class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-blue-400 dark:text-white"
+			  class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-blue-600 dark:text-white"
 			>
 			  <ProfileCheck class="size-8" />
 			  Sobre mí

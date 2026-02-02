@@ -18,35 +18,41 @@ const TAGS = {
 };
 const PROJECTS = [
   {
-    title: "Amigo Peludo",
+    title: "TL Agencia - Agencia de Autos",
     description:
-      "Aplicación web diseñada para centralizar la adopción, rescate y otros servicios para ayudar a todas las mascotas. Tiene como funcionalidad publicar anuncios para dar en adopción a una mascota, buscar una que se ha perdido, o informar sobre una mascota que has encontrado. Desarrollada con Java, Spring Boot, Next.js, React, TypeScript y Tailwind CSS.",
-    link: "https://www.amigopeludo.website/",
-    image: "/img/projects/amigo-peludo.webp",
+      "Agencia de autos con catálogo online: landing pública (Encuentra el auto de tus sueños, estadísticas, automóviles disponibles) y panel de administración para gestionar vehículos, finanzas y contactos.",
+    link: "https://tlautos.com.ar/",
+    images: [
+      "/img/projects/tlautos-landing.png",
+      "/img/projects/tlautos-admin.png",
+    ],
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Mercedes Nails Studio",
+    description:
+      "Estudio de manicura en Santa Fe que ofrece servicios de alta calidad con técnicas modernas, esmaltes  y un enfoque en el cuidado y la experiencia de la clienta. Incluye una landing pública (servicios, turnos online y testimonios) y un panel de administración para gestionar reservas, horarios y notificaciones.",
+    link: "https://www.mercedes-nails.com/",
+    images: [
+      "/img/projects/mercedes-nails-landing.png",
+      "/img/projects/mercedes-nails-admin.png",
+    ],
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
     title: "Psicopedagogos Santa Fe",
     description:
-      "Aplicación web destinada al Colegio de Profesionales de la Psicopedagogía de la la provincia de Santa Fe(Argentina). Esta tiene como funcionalidad dar noticia de eventos, noticias administrativas, capacitaciones, etc. Desarrollada en Wordpress.",
+      "Aplicación web destinada al Colegio de Profesionales de la Psicopedagogía de la la provincia de Santa Fe(Argentina). Esta tiene como funcionalidad dar noticia de eventos, noticias administrativas, capacitaciones, etc.",
     link: "https://psicopedagogossantafe.org/",
     image: "/img/projects/psicopedagogia.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
-    title: "Bloom Studio",
+    title: "Amigo Peludo",
     description:
-      "Esta web esta destinada a un studio de belleza, la misma cuenta con funcionalidades como: Pagos integrados utilizando Mercado pago, sistema de reservas,envios de comprobantes via email, entre otros. Tambien cuenta con un dashboard del lado del profesional para llevar un control de reservas, historial de pagos, agregar o eliminar contenido del book, etc. Desarrollada con Java, Next.js, React y Tailwind CSS.",
-    link: "https://ng-ui-git-main-joairazabal.vercel.app/",
-    image: "/img/projects/bloom.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
-  },
-  {
-    title: "Studio by M - Macarena Bernal",
-    description:
-      "Plataforma gratuita. La web se trata de venta de cursos por Macarena Bernal (creados por ella) y seguimiento de los distintos cursos comprados por los usuarios (se otorgan certificados). Desarrollada con Node.js, Express, Mongoose, Next.js, React y Tailwind CSS.",
-    link: "http://studiobym.com.ar/",
-    image: "/img/projects/studioByM.webp",
+      "Aplicación web diseñada para centralizar la adopción, rescate y otros servicios para ayudar a todas las mascotas. Tiene como funcionalidad publicar anuncios para dar en adopción a una mascota, buscar una que se ha perdido, o informar sobre una mascota que has encontrado.",
+    link: "https://www.amigopeludo.website/",
+    image: "/img/projects/amigo-peludo.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
 ];
@@ -54,30 +60,82 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, link }) => (
+    PROJECTS.map((project, index) => {
+      const images = "images" in project && Array.isArray(project.images) ? project.images : [project.image];
+      const isCarousel = images.length > 1;
+      const slug = project.title.replace(/\s+/g, "-").toLowerCase();
+      return (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-            <img
-              alt="Recién llegado vs 5 años en Nueva Zelanda"
-              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-              loading="lazy"
-              src={image}
-            />
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-200 lg:hover:border-gray-300 lg:hover:bg-gray-100/50 dark:border-gray-800 dark:hover:border-gray-700 dark:hover:bg-gray-800/50">
+            {isCarousel ? (
+              <div class="carousel w-full" data-carousel={slug}>
+                <div class="relative w-full h-56 overflow-hidden rounded-xl">
+                  {images.map((src, i) => (
+                    <div
+                      class={`carousel-slide absolute inset-0 transition-opacity duration-300 ${i === 0 ? "opacity-100 z-10" : "opacity-0 z-0"}`}
+                      data-slide={i}
+                      aria-hidden={i !== 0}
+                    >
+                      <img
+                        alt={`${project.title} - captura ${i + 1}`}
+                        class="object-cover object-top w-full h-full md:scale-110 md:group-hover:scale-105 transition duration-500"
+                        loading={i === 0 ? "lazy" : "lazy"}
+                        src={src}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div class="flex items-center justify-center gap-2 mt-2">
+                  <button
+                    type="button"
+                    class="carousel-prev rounded-full p-1.5 text-gray-600 hover:text-gray-800 hover:bg-gray-200 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-700/50 transition"
+                    aria-label="Imagen anterior"
+                    data-carousel={slug}
+                  >
+                    <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                  </button>
+                  {images.map((_, i) => (
+                    <button
+                      type="button"
+                      class={`carousel-dot h-2 w-2 rounded-full transition ${i === 0 ? "bg-gray-600 dark:bg-gray-400" : "bg-gray-400 dark:bg-gray-600 hover:bg-gray-500 dark:hover:bg-gray-500"}`}
+                      aria-label={`Ir a imagen ${i + 1}`}
+                      data-carousel={slug}
+                      data-index={i}
+                    />
+                  ))}
+                  <button
+                    type="button"
+                    class="carousel-next rounded-full p-1.5 text-gray-600 hover:text-gray-800 hover:bg-gray-200 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-700/50 transition"
+                    aria-label="Siguiente imagen"
+                    data-carousel={slug}
+                  >
+                    <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <img
+                alt={project.title}
+                class="object-cover object-top w-full h-56 transition duration-500 sm:h-56 md:scale-110 md:group-hover:scale-105"
+                loading="lazy"
+                src={images[0]}
+              />
+            )}
           </div>
         </div>
 
         <div class="w-full md:w-1/2 md:max-w-lg">
-          <h3 class="text-2xl font-bold text-gray-100 dark:text-gray-100">
-            {title}
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
+            {project.title}
           </h3>
           <div class="flex flex-wrap mt-2">
-            <div class="mt-2 text-gray-500 dark:text-gray-300">
-              {description}
+            <div class="mt-2 text-gray-700 dark:text-gray-300">
+              {project.description}
             </div>
             <footer class="flex items-end justify-start mt-4 gap-x-4">
-              {link && (
-                <LinkButton href={link}>
+              {project.link && (
+                <LinkButton href={project.link}>
                   <Link class="size-4" />
                   Web
                 </LinkButton>
@@ -86,6 +144,36 @@ const PROJECTS = [
           </div>
         </div>
       </article>
-    ))
+    );
+    })
   }
 </div>
+
+<script>
+  document.querySelectorAll(".carousel").forEach((carousel) => {
+    const slides = carousel.querySelectorAll(".carousel-slide");
+    const dots = carousel.querySelectorAll(".carousel-dot");
+    const prev = carousel.querySelector(".carousel-prev");
+    const next = carousel.querySelector(".carousel-next");
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(i: number) {
+      current = (i + total) % total;
+      slides.forEach((el, j) => {
+        (el as HTMLElement).style.opacity = j === current ? "1" : "0";
+        el.setAttribute("aria-hidden", j !== current ? "true" : "false");
+      });
+      dots.forEach((dot, j) => {
+        dot.classList.toggle("bg-gray-600", j === current);
+        dot.classList.toggle("dark:bg-gray-400", j === current);
+        dot.classList.toggle("bg-gray-400", j !== current);
+        dot.classList.toggle("dark:bg-gray-600", j !== current);
+      });
+    }
+
+    if (prev) prev.addEventListener("click", () => goTo(current - 1));
+    if (next) next.addEventListener("click", () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+  });
+</script>

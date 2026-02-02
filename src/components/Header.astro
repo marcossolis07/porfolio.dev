@@ -1,11 +1,13 @@
 ---
 import ThemeToggle from "../components/ThemeToggle.astro";
 
+const showExperience = false; // Cambiar a true para mostrar Experiencia en la navbar
 const navItems = [
   {
     title: "Experiencia",
     label: "experiencia",
     url: "/#experiencia",
+    hidden: !showExperience,
   },
   {
     title: "Proyectos",
@@ -34,12 +36,12 @@ const navItems = [
   class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-6"
 >
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+    class="flex px-3 text-sm font-medium rounded-full text-gray-800 dark:text-gray-200 justify-center items-center"
   >
     {
-      navItems.map((link) => (
+      navItems.filter((link) => !link.hidden).map((link) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+          class="relative block px-2 py-2 transition hover:text-blue-600 dark:hover:text-yellow-400"
           aria-label={link.label}
           href={link.url}
         >
@@ -58,9 +60,29 @@ const navItems = [
     animation-range: 0 100px;
   }
 
+  html.dark nav {
+    animation-name: nav-shadown-dark;
+  }
+
   @keyframes nav-shadown {
     to {
-      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      border-width: 1px;
+      border-color: rgb(229 231 235);
+      backdrop-filter: blur(20px);
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 9999px;
+    }
+  }
+
+  @keyframes nav-shadown-dark {
+    to {
+      box-shadow: 0 5px 50px -5px rgba(0, 0, 0, 0.3);
+      border-width: 1px;
+      border-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      background-color: rgba(31, 41, 55, 0.9);
+      border-radius: 9999px;
     }
   }
 </style>

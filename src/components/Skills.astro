@@ -143,11 +143,16 @@ const skills = [
     align-items: center;
     background: #eee;
     border-radius: 6px;
-    color: black;
+    color: #111;
     display: flex;
     font-size: 0.8rem;
     font-weight: 500;
     gap: 4px;
     padding: 0.2rem 0.6rem;
+  }
+
+  :global(html.dark) li {
+    background: rgba(31, 41, 55, 0.8);
+    color: rgba(229, 231, 235, 0.95);
   }
 </style>
