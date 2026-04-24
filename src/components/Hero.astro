@@ -1,12 +1,11 @@
 ---
 const personalImageAlt = "Marcos Solis";
 import { personalData } from "../../utils/data/personal-data";
-import Badge from "./Badge.astro";
 import Social from "./Social.astro";
-import LinkedInIcon from "../icons/LinkedIn.astro";
-import GitHubIcon from "../icons/GitHub.astro";
 import MailIcon from "../icons/Mail.astro";
 import DownloadIcon from "../icons/Download.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import GitHubIcon from "../icons/GitHub.astro";
 ---
 
 <article
@@ -21,18 +20,20 @@ import DownloadIcon from "../icons/Download.astro";
     <p
       class="mt-6 text-xl text-blue-700 dark:[&>strong]:text-yellow-500 [&>strong]:text-yellow-200 [&>strong]:font-semibold dark:text-gray-300 [&>strong]:text-blue-800"
     >
-      <strong>Desarrollador y Programador Web Full Stack.</strong> De Santa Fe, Argentina.
-      Especializado en el desarrollo de aplicaciones web y mobile.
+      <strong>Desarrollador web full stack freelance.</strong> De Santa Fe, Argentina.
+      Desarrollo y entrego productos completos a clientes: desde ecommerce y sitios a medida
+      hasta paneles de administración y sistemas reutilizables, con foco en web y, cuando hace
+      falta, mobile.
     </p>
     <nav class="flex flex-wrap gap-4 mt-8">
-      <!-- <Social href="https://www.linkedin.com/in/marcos-solis-512862283/">
-    <LinkedInIcon class="size-4 md:size-6" />
-    LinkedIn
-  </Social>
-  <Social href="https://github.com/marcossolis07">
-    <GitHubIcon class="size-4 md:size-6"/>
-    GitHub
-  </Social> -->
+      <Social href="https://www.linkedin.com/in/marcos-solis-512862283/">
+        <LinkedInIcon class="size-4 md:size-6" />
+        LinkedIn
+      </Social>
+      <Social href="https://github.com/marcossolis07">
+        <GitHubIcon class="size-4 md:size-6" />
+        GitHub
+      </Social>
       <Social href="mailto:marcossolis023@gmail.com">
         <MailIcon class="size-4 md:size-6" />
         marcossolis023@gmail.com

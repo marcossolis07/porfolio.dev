@@ -11,13 +11,14 @@ import ProfileCheck from '../icons/ProfileCheck.astro';
 import AboutMe from '../components/AboutMe.astro'
 import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
+import ContactSection from '../components/ContactSection.astro';
 
-const showExperience = false; // Cambiar a true para mostrar la sección Experiencia Laboral
+const showExperience = true;
 ---
 
 <Layout 
-	title="Portfolio de Marcos Solis - Desarrollador y Programador Web"
-	description="Contratame para crear tu aplicacion web o movil. Desarrollador Web, especializado en desarrollo Full Stack"
+	title="Marcos Solis | Desarrollador web full stack freelance (Santa Fe)"
+	description="Desarrollador full stack freelance: ecommerce, sitios a medida, paneles de administración y sistemas reutilizables. Santa Fe, Argentina. Contratá para productos web completos."
 >
 	<main class="px-4">
 		<SectionContainer class="py-16 md:py-36">
@@ -64,6 +65,10 @@ const showExperience = false; // Cambiar a true para mostrar la sección Experie
 			</h2>
 			<AboutMe />
 		  </SectionContainer>
+
+		<SectionContainer id="contacto" class="pb-8">
+			<ContactSection />
+		</SectionContainer>
 		</div>
 	</main>
 </Layout>

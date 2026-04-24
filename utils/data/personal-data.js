@@ -1,3 +1,3 @@
 export const personalData = {
-    resume: "/marcos-solis-CV.pdf"
+    resume: "/CV-desarrollador-marcos-solis.pdf"
 }

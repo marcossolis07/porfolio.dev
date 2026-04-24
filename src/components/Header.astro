@@ -1,33 +1,33 @@
 ---
 import ThemeToggle from "../components/ThemeToggle.astro";
 
-const showExperience = false; // Cambiar a true para mostrar Experiencia en la navbar
+const showExperience = true;
 const navItems = [
   {
     title: "Experiencia",
     label: "experiencia",
-    url: "/#experiencia",
+    url: "#experiencia",
     hidden: !showExperience,
   },
   {
     title: "Proyectos",
     label: "proyectos",
-    url: "/#proyectos",
+    url: "#proyectos",
   },
   {
     title: "Habilidades",
     label: "habilidades",
-    url: "/#habilidades",
+    url: "#habilidades",
   },
   {
     title: "Sobre mí",
     label: "sobre-mi",
-    url: "/#sobre-mi",
+    url: "#sobre-mi",
   },
   {
     title: "Contacto",
     label: "contacto",
-    url: "mailto:marcossolis023@gmail.com",
+    url: "#contacto",
   },
 ];
 ---
@@ -44,6 +44,7 @@ const navItems = [
           class="relative block px-2 py-2 transition hover:text-blue-600 dark:hover:text-yellow-400"
           aria-label={link.label}
           href={link.url}
+          data-nav-anchor={link.url.startsWith("#") ? "true" : undefined}
         >
           {link.title}
         </a>
@@ -86,6 +87,37 @@ const navItems = [
     }
   }
 </style>
+
+<script is:inline>
+  /** @param {string} hash */
+  function scrollToSectionHash(hash) {
+    const id = hash.startsWith("#") ? hash.slice(1) : hash;
+    if (!id) return false;
+    const el = document.getElementById(id);
+    if (!el) return false;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", "#" + id);
+    return true;
+  }
+
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+    if (!(t instanceof Element)) return;
+    const a = t.closest("a[data-nav-anchor]");
+    if (!a || !(a instanceof HTMLAnchorElement)) return;
+    const href = a.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    if (!scrollToSectionHash(href)) return;
+    e.preventDefault();
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    if (typeof window === "undefined" || !window.location.hash) return;
+    requestAnimationFrame(function () {
+      scrollToSectionHash(window.location.hash);
+    });
+  });
+</script>
 
 <!-- Este script utiliza el IntersectionObserver para observar cuándo las secciones de la página son visibles en el viewport y resalta el enlace de navegación correspondiente a la sección visible.  -->
 <!-- <script>

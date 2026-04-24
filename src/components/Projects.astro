@@ -16,12 +16,33 @@ const TAGS = {
     icon: Tailwind,
   },
 };
-const PROJECTS = [
+
+type ProjectEntry = {
+  title: string;
+  description: string;
+  link?: string;
+  linkLabel?: string;
+  productLink?: string;
+  productLabel?: string;
+  image?: string;
+  images?: string[];
+  tags: (typeof TAGS)[keyof typeof TAGS][];
+};
+
+const PROJECTS: ProjectEntry[] = [
   {
-    title: "TL Agencia - Agencia de Autos",
+    title: "Sistema de gestión para concesionarias (Capital Motor)",
     description:
-      "Agencia de autos con catálogo online: landing pública (Encuentra el auto de tus sueños, estadísticas, automóviles disponibles) y panel de administración para gestionar vehículos, finanzas y contactos.",
+      "Producto reutilizable que vendemos como agencia: sitio público (catálogo, contacto) y " +
+      "panel de administración para stock, finanzas, seguimiento comercial y operación diaria. " +
+      "En producción con clientes de referencia como TL Autos y GL Autos. " +
+      "Las capturas son de un despliegue real: la identidad gráfica y el contenido visual " +
+      "de cada concesionaria queda definida por el cliente, no un único pack de diseño fijo. " +
+      "En la página de producto podés ver el relato, la oferta y videos del panel.",
     link: "https://tlautos.com.ar/",
+    linkLabel: "Ejemplo en producción (TL Autos)",
+    productLink: "https://capitalmotors.com.ar/",
+    productLabel: "Página de producto y demos",
     images: [
       "/img/projects/tlautos-landing.png",
       "/img/projects/tlautos-admin.png",
@@ -29,10 +50,28 @@ const PROJECTS = [
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
+    title: "El Rincón de Norma — Ecommerce",
+    description:
+      "Ecommerce con catálogo, carrito y flujo de compra para el cliente final, y " +
+      "panel de administración para productos, pedidos y operación de la tienda. " +
+      "Proyecto entregado a cliente: mismas ideas que en otros productos a medida (control " +
+      "de contenido sin depender siempre de un desarrollador).",
+    link: "https://www.elrincondenorma.com/",
+    linkLabel: "Web",
+    images: [
+      "/img/projects/el-rincon-norma-tienda.png",
+      "/img/projects/el-rincon-norma-admin.png",
+    ],
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
     title: "Mercedes Nails Studio",
     description:
-      "Estudio de manicura en Santa Fe que ofrece servicios de alta calidad con técnicas modernas, esmaltes  y un enfoque en el cuidado y la experiencia de la clienta. Incluye una landing pública (servicios, turnos online y testimonios) y un panel de administración para gestionar reservas, horarios y notificaciones.",
+      "Sitio para estudio de manicura: landing con servicios, reservas y presencia " +
+      "de marca, y panel de administración para turnos, horarios y notificaciones. " +
+      "Proyecto para cliente en producción.",
     link: "https://www.mercedes-nails.com/",
+    linkLabel: "Web",
     images: [
       "/img/projects/mercedes-nails-landing.png",
       "/img/projects/mercedes-nails-admin.png",
@@ -42,16 +81,23 @@ const PROJECTS = [
   {
     title: "Psicopedagogos Santa Fe",
     description:
-      "Aplicación web destinada al Colegio de Profesionales de la Psicopedagogía de la la provincia de Santa Fe(Argentina). Esta tiene como funcionalidad dar noticia de eventos, noticias administrativas, capacitaciones, etc.",
+      "Aplicación web para el Colegio de Profesionales de la Psicopedagogía de la provincia " +
+      "de Santa Fe (Argentina). Centraliza novedades, eventos, información administrativa y " +
+      "capacitaciones para asociados y público. Proyecto institucional en producción.",
     link: "https://psicopedagogossantafe.org/",
+    linkLabel: "Web",
     image: "/img/projects/psicopedagogia.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
     title: "Amigo Peludo",
     description:
-      "Aplicación web diseñada para centralizar la adopción, rescate y otros servicios para ayudar a todas las mascotas. Tiene como funcionalidad publicar anuncios para dar en adopción a una mascota, buscar una que se ha perdido, o informar sobre una mascota que has encontrado.",
+      "Proyecto personal (no comercial / no vendido): plataforma para difundir adopción, " +
+      "rescue y búsqueda de mascotas, con publicación de anuncios y búsqueda de " +
+      "animales perdidos o encontrados. Lo mantengo como experiencia y aporte a un tema " +
+      "que me interesa.",
     link: "https://www.amigopeludo.website/",
+    linkLabel: "Web",
     image: "/img/projects/amigo-peludo.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
@@ -60,10 +106,11 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map((project, index) => {
-      const images = "images" in project && Array.isArray(project.images) ? project.images : [project.image];
+    PROJECTS.map((project) => {
+      const images = "images" in project && Array.isArray(project.images) ? project.images : [project.image!];
       const isCarousel = images.length > 1;
       const slug = project.title.replace(/\s+/g, "-").toLowerCase();
+      const webLabel = project.linkLabel ?? "Web";
       return (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2">
@@ -133,11 +180,17 @@ const PROJECTS = [
             <div class="mt-2 text-gray-700 dark:text-gray-300">
               {project.description}
             </div>
-            <footer class="flex items-end justify-start mt-4 gap-x-4">
+            <footer class="flex flex-wrap items-end justify-start gap-x-4 gap-y-2 mt-4">
               {project.link && (
                 <LinkButton href={project.link}>
                   <Link class="size-4" />
-                  Web
+                  {webLabel}
+                </LinkButton>
+              )}
+              {project.productLink && project.productLabel && (
+                <LinkButton href={project.productLink}>
+                  <Link class="size-4" />
+                  {project.productLabel}
                 </LinkButton>
               )}
             </footer>
